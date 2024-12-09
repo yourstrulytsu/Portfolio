@@ -544,6 +544,30 @@ body, html {
     justify-content: center;
     align-items: center;
 }
+.skills {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .skills ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  .skills li {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #333;
+  }
+  
+  .skills i {
+    font-size: 2rem;
+  }
+  
 
 
 
