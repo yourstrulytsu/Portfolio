@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/75108f8044.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,133&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation Section -->
+  <nav class="navbar">
+    <div class="navbar__container">
+      <a href="/" id="navbar__logo">
+        <i class="fas fa-heart"></i> Abe
+      </a>
+      <div class="navbar__toggle" id="mobile-menu" aria-expanded="false" aria-controls="navbar__menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+    <ul class="navbar__menu" id="navbar__menu">
+      <li class="navbar__item">
+        <a href="index.html" class="navbar__links">Home</a>
+      </li>
+      <li class="navbar__item">
+        <a href="/contacts.html" class="navbar__links">Contacts</a>
+      </li>
+      <li class="navbar__item">
+        <a href="/aboutme.html" class="navbar__links">About Me</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Section -->
+  <main class="main">
+    <div class="content-section">
+      <!-- Text Content Section -->
+      <div class="text-section">
+        <h1>About Me</h1>
+        <h2>
+          I am currently 20 years old and I graduated from Upper Darby High School back in 2023. My hobbies right now are video games, reading webtoons, taking pictures, and learning how to code.
+          Currently, I am working on creating a Discord bot with Discord.js.
+        </h2>
+      </div>
+
+      <!-- Gallery Section -->
+      <div class="gallery-section">
+        <div class="gallery__container">
+          <!-- Image Items -->
+          <div class="gallery__item">
+            <img src="/images/IMG_3400.png" alt="Gallery Item 1">
+          </div>
+          <div class="gallery__item">
+            <img src="/images/IMG_3401.png" alt="Gallery Item 2">
+          </div>
+          <div class="gallery__item">
+            <img src="/images/IMG_3402.png" alt="Gallery Item 3">
+          </div>
+          <div class="gallery__item">
+            <img src="/images/IMG_3403.png" alt="Gallery Item 4">
+          </div>
+          <div class="gallery__item">
+            <img src="/images/IMG_3098.jpg" alt="Gallery Item 5">
+          </div>
+          <div class="gallery__item">
+            <img src="/images/IMG_3193.jpg" alt="Gallery Item 6">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <div class="footer__container">
+    <div class="footer__links">
+        <div class="footer__links--wrapper">
+            <div class="footer__links--items">
+                <h2>Socials</h2>
+                <a href="https://github.com/yourstrulytsu">Github</a>
+            </div>
+            <div class="footer__links--items">
+                <h2>More</h2>
+                <a href="https://www.instagram.com/yourstruly_tsu/profilecard/?igsh=MTh6emU2NGczYmd0bQ==">Instagram</a>
+            </div>
+        </div>
+    </div>
+    <div class="social__media">
+        <div class="social__media--wrap">
+            <div class="footer__logo">
+                <a href="/" id="footer__logo"><i class="fas fa-gem"></i>Abe</a>
+            </div>
+            <p class="website__rights">© Abe 2024. All rights reserved</p>
+            <div class="social__icons">
+                <!-- Email Link -->
+                <a href="abrahamsayon11@gmail.com" class="social__icons--links" target="_blank">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/yourstruly_tsu/profilecard/?igsh=MTh6emU2NGczYmd0bQ==" class="social__icons--links" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    </body>
+    </html>
+</html>
+
+
+  <script src="app.js"></script>
+  <script>
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.style.display = 'none';
+    }
+
+    document.querySelector('.gallery__container')?.addEventListener('click', function (event) {
+      if (event.target.tagName === 'IMG') {
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modalImg');
+        modalImg.src = event.target.src;
+        modal.style.display = 'flex';
+        modal.style.justifyContent = 'center';
+        modal.style.alignItems = 'center';
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/75108f8044.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/" id="navbar__logo">
+                <i class="fas fa-heart"></i>Abe
+            </a>
+            <div class="navbar__toggle" id="mobile-menu" aria-expanded="false" aria-controls="navbar__menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        <ul class="navbar__menu" id="navbar__menu">
+            <li class="navbar__item">
+                <a href="/index.html" class="navbar__links">Home</a>
+            </li>
+            <li class="navbar__item">
+                <a href="/contacts.html" class="navbar__links">Contacts</a>
+            </li>
+            <li class="navbar__item">
+                <a href="/aboutme.html" class="navbar__links">About Me</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main2">
+        <div class="main__container2">
+            <div class="main__content">
+                <h1>Here is where you can contact me via form</h1>
+            </div>
+            <!-- Form Section -->
+            <form>
+                <div class="form-group">
+                    <label class="form-label" for="name">Name</label>
+                    <input class="form-field" type="text" id="name" name="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input class="form-field" type="email" id="email" name="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="message">Message</label>
+                    <textarea class="form-field" id="message" name="message" rows="5" placeholder="Enter your message"></textarea>
+                </div>
+                <button class="form-btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer__container">
+        <div class="footer__links">
+            <div class="footer__links--wrapper">
+                <div class="footer__links--items">
+                    <h2>Socials</h2>
+                    <a href="https://github.com/yourstrulytsu" target="_blank">Github</a>
+                </div>
+                <div class="footer__links--items">
+                    <h2>More</h2>
+                    <a href="https://www.instagram.com/yourstruly_tsu/profilecard/?igsh=MTh6emU2NGczYmd0bQ==" target="_blank">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="social__media">
+            <div class="social__media--wrap">
+                <div class="footer__logo">
+                    <a href="/" id="footer__logo"><i class="fas fa-gem"></i>Abe</a>
+                </div>
+                <p class="website__rights">© Abe 2024. All rights reserved</p>
+                <div class="social__icons">
+                    <!-- Email Link -->
+                    <a href="mailto:your-email@example.com" class="social__icons--links" target="_blank">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.instagram.com/yourstruly_tsu/profilecard/?igsh=MTh6emU2NGczYmd0bQ==" class="social__icons--links" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('image-container').addEventListener('click', function (event) {
+            if (event.target.tagName === 'IMG') {
+                const imageUrl = event.target.src;
+                const modal = document.createElement('div');
+                modal.style.position = 'fixed';
+                modal.style.top = '0';
+                modal.style.left = '0';
+                modal.style.width = '100vw';
+                modal.style.height = '100vh';
+                modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                modal.style.display = 'flex';
+                modal.style.justifyContent = 'center';
+                modal.style.alignItems = 'center';
+                modal.style.zIndex = '1000';
+                modal.style.transition = "opacity 0.3s ease-in-out";
+modal.style.opacity = "0";
+setTimeout(() => modal.style.opacity = "1", 0);
+
+                const fullImage = document.createElement('img');
+                fullImage.src = imageUrl;
+                fullImage.style.maxWidth = '90%';
+                fullImage.style.maxHeight = '90%';
+                fullImage.style.borderRadius = '10px';
+                fullImage.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.5)';
+
+                modal.addEventListener('click', function () {
+                    modal.remove();
+                });
+
+                modal.appendChild(fullImage);
+                document.body.appendChild(modal);
+            }
+            const menuToggle = document.querySelector('.navbar__menu');
+const navbarLinks = document.querySelector('.navbar__links');
+
+menuToggle.addEventListener('click', () => {
+    navbarLinks.classList.toggle('active');
+});
+        });
+    </script>
+     <script src="app.js"></script>
+</body>
+</html>
