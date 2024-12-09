@@ -614,7 +614,7 @@ body, html {
 }
 
  /* mobile view*/
- @media screen and (max-width: 960px) {
+ @media screen and (max-width: 560px) {
     .navbar__container {
         display: flex;
         justify-content: space-between;
@@ -697,3 +697,53 @@ body, html {
     }
 }
 
+  /* Responsive Media Queries */
+  @media (max-width: 468px) {
+    .main__container {
+      grid-template-columns: 1fr;
+      padding: 20px 30px;
+    }
+  
+    .main__text {
+      text-align: center;
+    }
+  
+    .main__text h1,
+    .main__text h2 {
+      font-size: 3rem;
+    }
+  
+    .main__text p {
+      font-size: 1.2rem;
+    }
+  
+    .mobile-section {
+      display: flex; /* Show the mobile-only section */
+    }
+  }
+  
+  @media (max-width: 280px) {
+    #navbar__logo {
+      font-size: 1.2rem;
+    }
+  
+    .main__text h1 {
+      font-size: 2.5rem;
+    }
+  
+    .main__text h2 {
+      font-size: 2rem;
+    }
+  
+    .main__text p {
+      font-size: 1rem;
+    }
+  
+    .mobile-section p {
+      font-size: 0.9rem;
+    }
+  
+    .buttons {
+      padding: 8px 15px;
+    }
+  }
