@@ -44,17 +44,16 @@
       <!-- Text Content Section -->
       <div class="text-section">
         <h1>About Me</h1>
-          <h2>
-            I am currently 20 years old and I graduated from Upper Darby High School back in 2023.<br><br>
-            My hobbies right now are video games, reading webtoons, taking pictures, and learning how to code.<br><br>
-            Currently, I am working on creating a Discord bot with Discord.js and exploring web development concepts.<br><br>
-            My goal is to constantly learn and improve, taking on exciting projects that help me grow both professionally and personally.
-          </h2>
+        <h2>
+          I am currently 20 years old and I graduated from Upper Darby High School back in 2023.<br><br>
+          My hobbies right now are video games, reading webtoons, taking pictures, and learning how to code.<br><br>
+          Currently, I am working on creating a Discord bot with Discord.js and exploring web development concepts.<br><br>
+          My goal is to constantly learn and improve, taking on exciting projects that help me grow both professionally and personally.
+        </h2>
       </div>
 
-      <!-- Gallery Section -->
       <div class="gallery-section">
-        <div class="gallery__container">
+        <div id="image-container" class="gallery__container">
           <!-- Image Items -->
           <div class="gallery__item">
             <img src="/images/IMG_3400.png" alt="Gallery Item 1">
@@ -75,65 +74,101 @@
             <img src="/images/IMG_3193.jpg" alt="Gallery Item 6">
           </div>
         </div>
+      </div>      
       </div>
     </div>
   </main>
 
+  <!-- Modal for Image View -->
+  <div id="modal" class="modal">
+    <div class="modal__content">
+      <span class="modal__close" onclick="closeModal()">&times;</span>
+      <img id="modalImg" src="" alt="Modal Image">
+    </div>
+  </div>
+
   <!-- Footer Section -->
   <div class="footer__container">
     <div class="footer__links">
-        <div class="footer__links--wrapper">
-            <div class="footer__links--items">
-                <h2>Socials</h2>
-                <a href="https://github.com/yourstrulytsu">Github</a>
-            </div>
-            <div class="footer__links--items">
-                <h2>More</h2>
-                <a href="https://www.instagram.com/yourstruly_tsu/profilecard/?igsh=MTh6emU2NGczYmd0bQ==">Instagram</a>
-            </div>
+      <div class="footer__links--wrapper">
+        <div class="footer__links--items">
+          <h2>Socials</h2>
+          <a href="https://github.com/yourstrulytsu">Github</a>
         </div>
+        <div class="footer__links--items">
+          <h2>More</h2>
+          <a href="https://www.instagram.com/yourstruly_tsu/profilecard/?igsh=MTh6emU2NGczYmd0bQ==">Instagram</a>
+        </div>
+      </div>
     </div>
     <div class="social__media">
-        <div class="social__media--wrap">
-            <div class="footer__logo">
-                <a href="/" id="footer__logo"><i class="fas fa-gem"></i>Abe</a>
-            </div>
-            <p class="website__rights">© Abe 2024. All rights reserved</p>
-            <div class="social__icons">
-                <!-- Email Link -->
-                <a href="abrahamsayon11@gmail.com" class="social__icons--links" target="_blank">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://www.instagram.com/yourstruly_tsu/profilecard/?igsh=MTh6emU2NGczYmd0bQ==" class="social__icons--links" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </div>
+      <div class="social__media--wrap">
+        <div class="footer__logo">
+          <a href="/" id="footer__logo"><i class="fas fa-gem"></i>Abe</a>
         </div>
+        <p class="website__rights">© Abe 2024. All rights reserved</p>
+        <div class="social__icons">
+          <!-- Email Link -->
+          <a href="abrahamsayon11@gmail.com" class="social__icons--links" target="_blank">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://www.instagram.com/yourstruly_tsu/profilecard/?igsh=MTh6emU2NGczYmd0bQ==" class="social__icons--links" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
     </div>
-    <script src="app.js"></script>
-    </body>
-    </html>
-</html>
-
-
-  <script src="app.js"></script>
+  </div>
   <script>
-    function closeModal() {
-      const modal = document.getElementById('modal');
-      modal.style.display = 'none';
-    }
-
-    document.querySelector('.gallery__container')?.addEventListener('click', function (event) {
+    /** Dynamically create modal with clicked image */
+    document.getElementById('image-container').addEventListener('click', function (event) {
       if (event.target.tagName === 'IMG') {
-        const modal = document.getElementById('modal');
-        const modalImg = document.getElementById('modalImg');
-        modalImg.src = event.target.src;
+        const imageUrl = event.target.src;
+  
+        const modal = document.createElement('div');
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100vw';
+        modal.style.height = '100vh';
+        modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
         modal.style.display = 'flex';
         modal.style.justifyContent = 'center';
         modal.style.alignItems = 'center';
+        modal.style.zIndex = '1000';
+        modal.style.transition = "opacity 0.3s ease-in-out";
+        modal.style.opacity = "0";
+  
+        setTimeout(() => modal.style.opacity = "1", 0);
+  
+        const fullImage = document.createElement('img');
+        fullImage.src = imageUrl;
+        fullImage.style.maxWidth = '90%';
+        fullImage.style.maxHeight = '90%';
+        fullImage.style.borderRadius = '10px';
+        fullImage.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.5)';
+  
+        modal.addEventListener('click', function () {
+          modal.remove();
+        });
+  
+        modal.appendChild(fullImage);
+        document.body.appendChild(modal);
       }
     });
+  
+    /** Handle navbar toggle menu logic */
+    const menuToggle = document.getElementById('mobile-menu');
+    const navbarMenu = document.getElementById('navbar__menu');
+  
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+      });
+    }
   </script>
+  <script src="app.js"></script>
+  
 </body>
 
 </html>

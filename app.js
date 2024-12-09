@@ -6,19 +6,49 @@ menu.addEventListener('click', function() {
     menuLinks.classList.toggle('active');
 })
 
-function openModal(element) {
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modalImg');
-    
-    modal.style.display = "flex";
-    modalImg.src = element.querySelector('img').src;
+document.getElementById('image-container').addEventListener('click', function (event) {
+    if (event.target.tagName === 'IMG') {
+      const imageUrl = event.target.src;
   
-    // Adjust the modal image size
-    modalImg.style.width = '100%';
-    modalImg.style.height = 'auto';
-  }
+      const modal = document.createElement('div');
+      modal.style.position = 'fixed';
+      modal.style.top = '0';
+      modal.style.left = '0';
+      modal.style.width = '100vw';
+      modal.style.height = '100vh';
+      modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+      modal.style.display = 'flex';
+      modal.style.justifyContent = 'center';
+      modal.style.alignItems = 'center';
+      modal.style.zIndex = '1000';
+      modal.style.transition = "opacity 0.3s ease-in-out";
+      modal.style.opacity = "0";
   
-  function closeModal() {
-    const modal = document.getElementById('modal');
-    modal.style.display = "flex";
+      setTimeout(() => modal.style.opacity = "1", 0);
+  
+      const fullImage = document.createElement('img');
+      fullImage.src = imageUrl;
+      fullImage.style.maxWidth = '90%';
+      fullImage.style.maxHeight = '90%';
+      fullImage.style.borderRadius = '10px';
+      fullImage.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.5)';
+  
+      modal.appendChild(fullImage);
+  
+      modal.addEventListener('click', () => {
+        modal.remove();
+      });
+  
+      document.body.appendChild(modal);
+    }
+  });
+  
+  // Handle mobile menu toggle
+  const menuToggle = document.getElementById('mobile-menu');
+  const navbarMenu = document.getElementById('navbar__menu');
+  
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      navbarMenu.classList.toggle('active');
+    });
   }
