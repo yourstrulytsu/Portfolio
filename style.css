@@ -627,7 +627,7 @@ body, html {
 }
 
  /* mobile view*/
- @media screen and (max-width: 560px) {
+ @media screen and (max-width: 760px) {
     .navbar__container {
         display: flex;
         justify-content: space-between;
@@ -709,6 +709,45 @@ body, html {
         transform: translateY(-8px) rotate(-45deg);
     }
 }
+/* Responsive Styling for Mobile Devices aboutme section */
+@media (max-width: 768px) {
+    /* Gallery: Adjust to 2 columns */
+    .gallery__container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px; /* Reduce spacing */
+    }
+  
+    /* Gallery images: Ensure proper sizing */
+    .gallery__item img {
+      width: 100%; /* Make images responsive */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 8px; /* Optional: Add rounded corners */
+    }
+  
+    /* Table: Full width and smaller padding */
+    table {
+      max-width: 100%; /* Allow table to stretch across the screen */
+      margin: 10px auto; /* Center the table */
+    }
+  
+    table th, table td {
+      padding: 8px; /* Reduce padding for smaller screens */
+      font-size: 14px; /* Slightly smaller text for readability */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Gallery: Adjust to single column */
+    .gallery__container {
+      grid-template-columns: repeat(1, 1fr); /* Single column for very small screens */
+    }
+  
+    /* Table: Smaller font and spacing */
+    table th, table td {
+      font-size: 12px;
+      padding: 5px;
+    }
+  }
 
   /* Responsive Media Queries */
   @media (max-width: 468px) {
@@ -760,3 +799,27 @@ body, html {
       padding: 8px 15px;
     }
   }
+
+  @media (max-width: 768px) {
+    /* For tablets: scale the video a bit */
+    .main__video {
+        max-width: 90%;
+    }
+
+    .main__video video {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* For smaller mobile devices: make the video take up most of the screen */
+    .main__video {
+        max-width: 100%;
+        transform: translateX(-50%); /* Move the video to the left */
+    }
+
+    .main__video {
+        width: 100%;
+        height: auto;
+    }
+}
